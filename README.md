@@ -1,23 +1,25 @@
-# E-Commerce
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=30&pause=1000&color=2E75B6&center=true&vCenter=true&width=700&lines=E-Commerce;System+%F0%9F%8F%86;Track+%C2%B7+Manage+%C2%B7+Analyze" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=30&pause=1000&color=2E75B6&center=true&vCenter=true&width=700&lines=E-Commerce+Platform+%F0%9F%9B%92;Browse+%C2%B7+Cart+%C2%B7+Checkout;Built+with+FastAPI+%2B+React" alt="Typing SVG" />
 
 <br/>
 
 <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge&logo=git" />
 <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/FastAPI-0.110+-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+<img src="https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
 <img src="https://img.shields.io/badge/PostgreSQL-16+-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/Version-1.0%20MVP-blue?style=for-the-badge" />
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 
 <br/><br/>
 
-> **EPMS** — A robust Management Information System for tracking, managing, and analyzing student participation across science and technology exhibitions.
+> **ECP-2026**  A full-stack e-commerce platform built as a university group project. Enables customers to browse products, manage a cart, and complete purchases with a dedicated admin panel for product and order management.
 
 <br/>
 
-[📖 Documentation](#-documentation) · [🚀 Quick Start](#-quick-start) · [📡 API Reference](#-api-reference) · [🤝 Contributing](#-contributing) ·
+[📖 Documentation](#-documentation) · [🚀 Quick Start](#-quick-start) · [📡 API Reference](#-api-reference) · [🗺️ Roadmap](#-roadmap) · [👥 Team](#-team)
+
 </div>
 
 ---
@@ -25,7 +27,7 @@
 ## 📌 Table of Contents
 
 - [About the Project](#-about-the-project)
-- [Key Features](#-key-features)
+- [V1 Scope](#-v1-scope)
 - [System Architecture](#-system-architecture)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
@@ -33,81 +35,102 @@
 - [API Reference](#-api-reference)
 - [Database Schema](#-database-schema)
 - [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
+- [Team](#-team)
 - [License](#-license)
 
 ---
 
 ## 🎯 About the Project
 
-The **Exhibition Participation Management System (EPMS)** is a backend-first MIS designed to streamline the entire lifecycle of science and technology exhibition events — from student registration and project submission, all the way to results tracking and historical reporting.
+**ECP-2026** is a backend-first e-commerce platform developed by a team of four students at **Mbeya University of Science and Technology (MUST)**. The system follows a clean layered architecture separating API routing, business logic, data access, and the database and is paired with a React frontend for the customer-facing storefront and admin dashboard.
 
-Built with a clean layered architecture, EPMS provides institutions, coordinators, and students with a centralised platform to:
+The project is structured around real-world software development practices: version control with Git, database migrations with Alembic, API documentation via Swagger, and role-based access control using JWT authentication.
 
-- 📋 **Register** students and their exhibition projects
-- 🏛️ **Manage** exhibition events, categories, and schedules
-- 📊 **Track** participation history and performance over time
-- 🏆 **Record** results, awards, and judge evaluations
-- 📈 **Generate** analytical reports for institutional decision-making
+**What the platform does:**
 
-> This project is developed as part of a real-world MIS learning initiative, applying industry-standard backend practices.
+- 🛍️ **Browse** products by category with search and filter support
+- 🛒 **Cart** management — add, update, and remove items
+- 💳 **Checkout** flow with order placement and confirmation
+- 🔐 **Authentication**  customer registration, login, and session management
+- 🛠️ **Admin Panel**  manage products, categories, and view orders
 
 ---
 
-## ✨ Key Features
+## 📦 V1 Scope
 
-| Feature | Description |
+Version 1 is intentionally scoped to the core buying flow. Scope is **locked** — any additions beyond what is listed below require a formal change request.
+
+### ✅ What's Included in V1
+
+| Area | Features |
 |---|---|
-| 🎓 **Student Management** | Register and manage student profiles, departments, and academic years |
-| 🏛️ **Exhibition Management** | Create and manage exhibitions with categories, dates, and venues |
-| 📋 **Project Submission** | Submit, update, and track project entries per exhibition |
-| 👨‍⚖️ **Judge Management** | Assign judges to categories and record evaluations |
-| 🏆 **Results & Awards** | Record scores, rank participants, and issue award certificates |
-| 📊 **Analytics Dashboard** | Aggregated reports on participation trends and performance |
-| 🔐 **Role-Based Access** | Admin, Coordinator, Judge, and Student access levels via JWT |
-| 📡 **REST API** | Fully documented OpenAPI/Swagger interface |
+| **Auth** | User registration, login (email + password), JWT session management |
+| **Products** | Product listing, search by name, filter by category |
+| **Cart** | Add to cart, update quantity, remove item, view cart total |
+| **Checkout** | Place order, order confirmation page |
+| **Orders** | Customer order history, order status tracking |
+| **Admin** | Add / edit / delete products, view all orders |
+| **Frontend** | Responsive storefront (React) — mobile and desktop |
+
+### ❌ What's NOT in V1
+
+| Excluded Feature | Reason |
+|---|---|
+| Real payment gateway (Stripe, PayPal, etc.) | Sandbox/mock only — integration complexity out of scope |
+| Multi-vendor / marketplace | Out of V1 scope |
+| Social login (Google, Facebook) | Post-MVP |
+| Shipping & logistics integration | Post-MVP |
+| Advanced analytics dashboard | Post-MVP |
+| Native mobile app (iOS / Android) | Post-MVP |
+| Product reviews and ratings | Post-MVP |
+
+> ⚠️ **Note:** Scope is locked after Phase 1. Any change requests must be reviewed by the project lead and will affect the project timeline.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        CLIENT LAYER                         │
-│              (Web Browser / Mobile / API Client)            │
-└───────────────────────────┬─────────────────────────────────┘
-                            │  HTTP / REST
-┌───────────────────────────▼─────────────────────────────────┐
-│                       API LAYER (FastAPI)                   │
-│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐   │
-│   │ /students│  │/exhibiti-│  │/projects │  │ /results  │   │
-│   │  router  │  │ons router│  │  router  │  │  router   │   │ 
-│   └────┬─────┘  └────┬─────┘  └────┬─────┘  └─────┬─────┘   │
-└────────┼─────────────┼─────────────┼───────────────┼────────┘
-         │             │             │               │
-┌────────▼─────────────▼─────────────▼───────────────▼────────┐
-│                     SERVICE LAYER                           │
-│         Business Logic · Validation · Orchestration         │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                   REPOSITORY LAYER                          │
-│              SQLAlchemy 2.0 Async ORM Queries               │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                   DATABASE LAYER                            │
-│              PostgreSQL · Alembic Migrations                │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                        CLIENT LAYER                          │
+│              React 18 · Tailwind CSS · Axios                 │
+│         (Storefront · Cart · Checkout · Admin Panel)         │
+└────────────────────────┬─────────────────────────────────────┘
+                         │  HTTP / REST
+┌────────────────────────▼─────────────────────────────────────┐
+│                    API LAYER (FastAPI)                       │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐     │
+│  │  /auth   │ │/products │ │  /cart   │ │   /orders    │     │
+│  │  router  │ │  router  │ │  router  │ │    router    │     │
+│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └──────┬───────┘     │
+└───────┼────────────┼────────────┼──────────────┼────────────-┘
+        │            │            │              │
+┌───────▼────────────▼────────────▼──────────────▼───────────--┐
+│                      SERVICE LAYER                           │
+│          Business Logic · Validation · Orchestration         │
+└───────────────────────────────┬──────────────────────────────┘
+                                │
+┌───────────────────────────────▼──────────────────────────────┐
+│                    REPOSITORY LAYER                          │
+│              SQLAlchemy 2.0 Async ORM Queries                │
+└───────────────────────────────┬──────────────────────────────┘
+                                │
+┌───────────────────────────────▼──────────────────────────────┐
+│                     DATABASE LAYER                           │
+│               PostgreSQL 16 · Alembic Migrations             │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 **Design Pattern:** Routes → Services → Repositories → Models  
-**Auth:** JWT Bearer tokens with role-based permissions  
-**Validation:** Pydantic v2 schemas on all inputs/outputs
+**Auth:** JWT Bearer tokens with role-based access (Customer / Admin)  
+**Validation:** Pydantic v2 schemas on all inputs and outputs  
+**Frontend ↔ Backend:** REST API via Axios with CORS configured
 
 ---
 
 ## 🛠️ Tech Stack
+
+### Backend
 
 | Layer | Technology | Purpose |
 |---|---|---|
@@ -116,70 +139,112 @@ Built with a clean layered architecture, EPMS provides institutions, coordinator
 | **ORM** | SQLAlchemy 2.0 (async) | Database abstraction |
 | **Database** | PostgreSQL 16+ | Primary data store |
 | **Migrations** | Alembic | Schema version control |
-| **Validation** | Pydantic v2 | Request/response schemas |
+| **Validation** | Pydantic v2 | Request / response schemas |
 | **Auth** | JWT (python-jose) | Authentication & authorisation |
 | **Testing** | pytest + httpx | Unit & integration tests |
 | **Dev Server** | Uvicorn | ASGI server |
 | **Env Config** | python-dotenv | Environment management |
+
+### Frontend
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Framework** | React 18+ | UI component library |
+| **Styling** | Tailwind CSS | Utility-first CSS framework |
+| **HTTP Client** | Axios | API requests |
+| **Routing** | React Router v6 | Client-side navigation |
+| **State** | Context API | Cart & auth state management |
+| **Build Tool** | Vite | Fast dev server & bundler |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-epms/
-├── 📁 app/
-│   ├── 📁 api/
-│   │   ├── 📁 v1/
-│   │   │   ├── students.py       # Student endpoints
-│   │   │   ├── exhibitions.py    # Exhibition endpoints
-│   │   │   ├── projects.py       # Project submission endpoints
-│   │   │   ├── results.py        # Results & awards endpoints
-│   │   │   └── auth.py           # Authentication endpoints
-│   │   └── deps.py               # Shared dependencies (auth, db)
-│   │
-│   ├── 📁 core/
-│   │   ├── config.py             # App configuration (env vars)
-│   │   ├── security.py           # JWT creation & verification
-│   │   └── database.py           # Async DB engine & session
-│   │
-│   ├── 📁 models/
-│   │   ├── student.py            # Student ORM model
-│   │   ├── exhibition.py         # Exhibition ORM model
-│   │   ├── project.py            # Project ORM model
-│   │   └── result.py             # Result & award ORM model
-│   │
-│   ├── 📁 schemas/
-│   │   ├── student.py            # Pydantic schemas for students
-│   │   ├── exhibition.py         # Pydantic schemas for exhibitions
-│   │   ├── project.py            # Pydantic schemas for projects
-│   │   └── result.py             # Pydantic schemas for results
-│   │
-│   ├── 📁 services/
-│   │   ├── student_service.py    # Student business logic
-│   │   ├── exhibition_service.py # Exhibition business logic
-│   │   └── result_service.py     # Scoring & ranking logic
-│   │
-│   ├── 📁 repositories/
-│   │   ├── student_repo.py       # Student DB queries
-│   │   ├── exhibition_repo.py    # Exhibition DB queries
-│   │   └── result_repo.py        # Result DB queries
-│   │
-│   └── main.py                   # App entry point & router mount
+ecp-2025/
 │
-├── 📁 alembic/                   # Database migrations
-│   ├── versions/
-│   └── env.py
+├── 📁 backend/
+│   ├── 📁 app/
+│   │   ├── 📁 api/
+│   │   │   ├── 📁 v1/
+│   │   │   │   ├── auth.py           # Register, login, token refresh
+│   │   │   │   ├── products.py       # Product CRUD endpoints
+│   │   │   │   ├── cart.py           # Cart management endpoints
+│   │   │   │   └── orders.py         # Order placement & history
+│   │   │   └── deps.py               # Shared dependencies (auth, db)
+│   │   │
+│   │   ├── 📁 core/
+│   │   │   ├── config.py             # App settings (env vars)
+│   │   │   ├── security.py           # JWT creation & verification
+│   │   │   └── database.py           # Async DB engine & session
+│   │   │
+│   │   ├── 📁 models/
+│   │   │   ├── user.py               # User ORM model
+│   │   │   ├── product.py            # Product ORM model
+│   │   │   ├── cart.py               # Cart & CartItem ORM models
+│   │   │   └── order.py              # Order & OrderItem ORM models
+│   │   │
+│   │   ├── 📁 schemas/
+│   │   │   ├── user.py               # Pydantic schemas for users
+│   │   │   ├── product.py            # Pydantic schemas for products
+│   │   │   ├── cart.py               # Pydantic schemas for cart
+│   │   │   └── order.py              # Pydantic schemas for orders
+│   │   │
+│   │   ├── 📁 services/
+│   │   │   ├── auth_service.py       # Auth & user business logic
+│   │   │   ├── product_service.py    # Product business logic
+│   │   │   ├── cart_service.py       # Cart operations & pricing
+│   │   │   └── order_service.py      # Order placement logic
+│   │   │
+│   │   ├── 📁 repositories/
+│   │   │   ├── user_repo.py          # User DB queries
+│   │   │   ├── product_repo.py       # Product DB queries
+│   │   │   ├── cart_repo.py          # Cart DB queries
+│   │   │   └── order_repo.py         # Order DB queries
+│   │   │
+│   │   └── main.py                   # App entry point & router mount
+│   │
+│   ├── 📁 alembic/                   # Database migrations
+│   │   ├── versions/
+│   │   └── env.py
+│   │
+│   ├── 📁 tests/
+│   │   ├── test_auth.py
+│   │   ├── test_products.py
+│   │   └── test_orders.py
+│   │
+│   ├── .env.example
+│   ├── requirements.txt
+│   ├── alembic.ini
+│   └── README.md
 │
-├── 📁 tests/
-│   ├── test_students.py
-│   ├── test_exhibitions.py
-│   └── test_results.py
+├── 📁 frontend/
+│   ├── 📁 src/
+│   │   ├── 📁 components/            # Reusable UI components
+│   │   ├── 📁 pages/                 # Route-level pages
+│   │   │   ├── Home.jsx
+│   │   │   ├── ProductList.jsx
+│   │   │   ├── ProductDetail.jsx
+│   │   │   ├── Cart.jsx
+│   │   │   ├── Checkout.jsx
+│   │   │   ├── OrderConfirmation.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── admin/
+│   │   │       ├── Dashboard.jsx
+│   │   │       ├── Products.jsx
+│   │   │       └── Orders.jsx
+│   │   ├── 📁 context/               # Auth & cart context
+│   │   ├── 📁 services/              # Axios API calls
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── package.json
 │
-├── .env.example                  # Environment variable template
-├── requirements.txt              # Python dependencies
-├── alembic.ini                   # Alembic config
-└── README.md
+└── README.md                         # ← You are here
 ```
 
 ---
@@ -191,36 +256,41 @@ epms/
 Make sure you have the following installed:
 
 - [Python 3.11+](https://www.python.org/downloads/)
+- [Node.js 18+](https://nodejs.org/)
 - [PostgreSQL 16+](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com/)
+
+---
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/khamisngofi-web/epms.git
-cd epms
+git clone https://github.com/khamisngofi-web/ecp-2025.git
+cd ecp-2025
 ```
 
-### 2. Create & Activate Virtual Environment
+---
+
+### 2. Backend Setup
 
 ```bash
+# Navigate to backend
+cd backend
+
 # Create virtual environment
 python -m venv venv
 
-# Activate (Linux / macOS)
+# Activate — Linux / macOS
 source venv/bin/activate
 
-# Activate (Windows)
+# Activate — Windows
 venv\Scripts\activate
-```
 
-### 3. Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+**Configure environment variables:**
 
 ```bash
 cp .env.example .env
@@ -230,7 +300,7 @@ Edit `.env` with your values:
 
 ```env
 # Database
-DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/epms_db
+DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/ecp_db
 
 # Security
 SECRET_KEY=your-super-secret-key-here
@@ -238,25 +308,24 @@ ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 # App
-APP_NAME=EPMS
+APP_NAME=ECP-2025
 DEBUG=True
+ALLOWED_ORIGINS=http://localhost:5173
 ```
 
-### 5. Run Database Migrations
+**Run database migrations:**
 
 ```bash
 alembic upgrade head
 ```
 
-### 6. Start the Server
+**Start the backend server:**
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### 7. Open API Docs
-
-Visit **[http://localhost:8000/docs](http://localhost:8000/docs)** for the interactive Swagger UI.
+Backend is live at **[http://localhost:8000](http://localhost:8000)**
 
 ```
 🌐 Swagger UI  →  http://localhost:8000/docs
@@ -266,141 +335,200 @@ Visit **[http://localhost:8000/docs](http://localhost:8000/docs)** for the inter
 
 ---
 
+### 3. Frontend Setup
+
+```bash
+# Open a new terminal and navigate to frontend
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Frontend is live at **[http://localhost:5173](http://localhost:5173)**
+
+---
+
 ## 📡 API Reference
 
 ### Authentication
 
 ```http
-POST /api/v1/auth/login
-POST /api/v1/auth/register
-POST /api/v1/auth/refresh
+POST /api/v1/auth/register        # Create a new customer account
+POST /api/v1/auth/login           # Login and receive JWT token
+POST /api/v1/auth/refresh         # Refresh access token
 ```
 
-### Students
+### Products
 
 ```http
-GET    /api/v1/students              # List all students
-POST   /api/v1/students              # Register a new student
-GET    /api/v1/students/{id}         # Get student details
-PUT    /api/v1/students/{id}         # Update student
-DELETE /api/v1/students/{id}         # Remove student
-GET    /api/v1/students/{id}/history # Student participation history
+GET    /api/v1/products                    # List all products (with search & filter)
+GET    /api/v1/products/{id}               # Get single product details
+POST   /api/v1/products                    # [Admin] Create a product
+PUT    /api/v1/products/{id}               # [Admin] Update a product
+DELETE /api/v1/products/{id}               # [Admin] Delete a product
+GET    /api/v1/products?category={name}    # Filter products by category
+GET    /api/v1/products?search={query}     # Search products by name
 ```
 
-### Exhibitions
+### Cart
 
 ```http
-GET    /api/v1/exhibitions           # List all exhibitions
-POST   /api/v1/exhibitions           # Create a new exhibition
-GET    /api/v1/exhibitions/{id}      # Get exhibition details
-PUT    /api/v1/exhibitions/{id}      # Update exhibition
-GET    /api/v1/exhibitions/{id}/participants  # List participants
+GET    /api/v1/cart                        # Get current user's cart
+POST   /api/v1/cart/items                  # Add item to cart
+PUT    /api/v1/cart/items/{item_id}        # Update item quantity
+DELETE /api/v1/cart/items/{item_id}        # Remove item from cart
+DELETE /api/v1/cart                        # Clear entire cart
 ```
 
-### Projects
+### Orders
 
 ```http
-POST   /api/v1/projects              # Submit a project
-GET    /api/v1/projects/{id}         # Get project details
-PUT    /api/v1/projects/{id}         # Update submission
-GET    /api/v1/projects?exhibition={id}  # Filter by exhibition
+POST   /api/v1/orders                      # Place an order from current cart
+GET    /api/v1/orders                      # Get customer's order history
+GET    /api/v1/orders/{id}                 # Get order details
+GET    /api/v1/admin/orders                # [Admin] View all orders
+PUT    /api/v1/admin/orders/{id}/status    # [Admin] Update order status
 ```
 
-### Results & Analytics
-
-```http
-POST   /api/v1/results               # Record a result
-GET    /api/v1/results/{exhibition_id}/rankings  # Get ranked results
-GET    /api/v1/analytics/summary     # Participation overview report
-GET    /api/v1/analytics/trends      # Year-on-year trends
-```
-
-> 📘 Full interactive documentation available at `/docs` when the server is running.
+> 📘 Full interactive documentation available at `/docs` once the backend server is running.
 
 ---
 
 ## 🗄️ Database Schema
 
 ```
-┌──────────────┐     ┌─────────────────┐     ┌──────────────────┐
-│   students   │     │   exhibitions   │     │     projects     │
-├──────────────┤     ├─────────────────┤     ├──────────────────┤
-│ id (PK)      │     │ id (PK)         │     │ id (PK)          │
-│ full_name    │     │ name            │     │ title            │
-│ reg_number   │◄────┤ category        │────►│ description      │
-│ department   │     │ venue           │     │ student_id (FK)  │
-│ year_of_study│     │ date            │     │ exhibition_id(FK)│
-│ email        │     │ status          │     │ category         │
-│ created_at   │     │ created_at      │     │ submitted_at     │
-└──────────────┘     └─────────────────┘     └────────┬─────────┘
-                                                       │
-                     ┌─────────────────┐               │
-                     │    results      │               │
-                     ├─────────────────┤               │
-                     │ id (PK)         │               │
-                     │ project_id (FK) │◄──────────────┘
-                     │ judge_id (FK)   │
-                     │ score           │
-                     │ rank            │
-                     │ award           │
-                     │ notes           │
-                     │ evaluated_at    │
-                     └─────────────────┘
+┌──────────────┐       ┌─────────────────┐       ┌───────────────────┐
+│    users     │       │    products     │       │   categories      │
+├──────────────┤       ├─────────────────┤       ├───────────────────┤
+│ id (PK)      │       │ id (PK)         │       │ id (PK)           │
+│ full_name    │       │ name            │       │ name              │
+│ email        │       │ description     │◄──────│ slug              │
+│ password     │       │ price           │       │ created_at        │
+│ role         │       │ stock           │       └───────────────────┘
+│ created_at   │       │ category_id(FK) │
+└──────┬───────┘       │ image_url       │
+       │               │ created_at      │
+       │               └────────┬────────┘
+       │                        │
+┌──────▼───────┐                │
+│     cart     │       ┌────────▼────────┐       ┌───────────────────┐
+├──────────────┤       │   cart_items    │       │     orders        │
+│ id (PK)      │       ├─────────────────┤       ├───────────────────┤
+│ user_id (FK) │──────►│ id (PK)         │       │ id (PK)           │
+│ created_at   │       │ cart_id (FK)    │       │ user_id (FK)      │
+└──────────────┘       │ product_id (FK) │       │ total_amount      │
+                       │ quantity        │       │ status            │
+                       │ unit_price      │       │ created_at        │
+                       └─────────────────┘       └────────┬──────────┘
+                                                          │
+                                                 ┌────────▼──────────┐
+                                                 │   order_items     │
+                                                 ├───────────────────┤
+                                                 │ id (PK)           │
+                                                 │ order_id (FK)     │
+                                                 │ product_id (FK)   │
+                                                 │ quantity          │
+                                                 │ unit_price        │
+                                                 └───────────────────┘
 ```
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Project scaffolding & architecture setup
-- [x] Database models (SQLAlchemy 2.0 async)
-- [x] Pydantic v2 schemas
-- [x] Student management endpoints
-- [ ] Exhibition management endpoints
-- [ ] Project submission & tracking
-- [ ] JWT Authentication & role-based access
-- [ ] Judge management module
-- [ ] Results & scoring system
-- [ ] Analytics & reporting endpoints
-- [ ] Unit & integration test suite
-- [ ] Dockerize the application
-- [ ] Frontend dashboard (React)
-- [ ] Deployment (CI/CD pipeline)
+### Phase 1 — Initiation ✅
+- [x] Project Charter approved
+- [x] Team roles assigned
+- [x] Scope defined and locked
+
+### Phase 2 — Planning 🔄
+- [ ] Requirements documented
+- [ ] Timeline and milestones set
+- [ ] Risk register created
+
+### Phase 3 — Design
+- [ ] Wireframes created
+- [ ] UI design approved
+- [ ] Architecture diagram finalized
+
+### Phase 4 — Development
+- [ ] Repository setup & branch protection
+- [ ] Backend: Auth endpoints
+- [ ] Backend: Product CRUD
+- [ ] Backend: Cart management
+- [ ] Backend: Order placement
+- [ ] Frontend: Storefront pages
+- [ ] Frontend: Cart & checkout flow
+- [ ] Frontend: Admin panel
+
+### Phase 5 — Testing
+- [ ] Functional testing per feature
+- [ ] API integration testing
+- [ ] User acceptance testing (UAT)
+- [ ] Bug fixing sprint
+
+### Phase 6 — Deployment
+- [ ] Configure production environment
+- [ ] Deploy backend (Railway / Render)
+- [ ] Deploy frontend (Vercel / Netlify)
+- [ ] Release validation
+
+### Phase 7 — Closure
+- [ ] Documentation handover
+- [ ] Lessons learned review
+- [ ] Project closure report
+
+---
+
+## 👥 Team
+
+<div align="center">
+
+| Role | Name | Responsibility |
+|---|---|---|
+| **Project Lead** | Khamis Mgofi | Architecture, code review, delivery |
+| **Frontend Developer** | `Elizabeth` | React storefront & admin panel |
+| **Backend Developer** | `Kaleb` | FastAPI routes & business logic |
+| **Database Engineer** | `Nelson` | PostgreSQL models & migrations |
+| **Integration & QA** | `Khamis` | API integration, testing & bug fixes |
+
+*Developed at **Mbeya University of Science and Technology (MUST)**, Tanzania*
+
+</div>
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
+This is a university group project. Contributions are limited to team members. Branch protection rules are enforced — all changes go through pull requests.
 
 ```bash
-# 1. Fork the repository
-# 2. Create your feature branch
-git checkout -b feature/amazing-feature
+# 1. Pull the latest main
+git pull origin main
 
-# 3. Commit your changes
-git commit -m "feat: add amazing feature"
+# 2. Create your feature branch
+git checkout -b feature/your-feature-name
+
+# 3. Commit your changes (follow Conventional Commits)
+git commit -m "feat: add product search filter"
 
 # 4. Push to your branch
-git push origin feature/amazing-feature
+git push origin feature/your-feature-name
 
-# 5. Open a Pull Request
+# 5. Open a Pull Request for review
 ```
 
-Please follow the [Conventional Commits](https://www.conventionalcommits.org/) format for commit messages.
+**Branch naming convention:**
+- `feature/` — new features
+- `fix/` — bug fixes
+- `docs/` — documentation updates
+- `test/` — adding or updating tests
 
----
-
-## 👨‍💻 Authors
-
-<div align="center">
-
-*Khamis Mgofi , Abdul, Anthony,Benitha , Muharami, Nasra *
-
-Backend Developer& Frontend Developer· CS Students · Python Enthusiast
-
-
-</div>
+> ⚠️ No direct pushes to `main`. All PRs require review from the project lead before merging.
 
 ---
 
@@ -412,7 +540,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <div align="center">
 
-Made with ❤️ by **Khamis Mgofi,, Abdul, Anthony,Benitha , Muharami, Nasra**
+Built with ❤️ by **Khamis Mgofi & E-commerce Team** · MUST, Tanzania · 2025
 
 ⭐ Star this repo if you found it helpful!
 
