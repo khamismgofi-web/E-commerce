@@ -1,5 +1,20 @@
-fastapi
-uvicorn
-sqlalchemy
-pydantic
-asyncpg
+#core API framework
+fastapi==0.115.8
+uvicorn[standard]==0.30.6
+pydantic==2.10.6
+
+#Asyncio Database & ORM
+sqlalchemy==2.0.38
+asyncpg==0.29.0
+alembic==1.13.1
+postgresql==16
+
+#Background processing & caching
+celery==5.4.0
+redis==5.0.1
+
+#Authentication & Payments
+pyjwt==2.9.0
+passlib[bcrypt]==1.7.4
+stripe==9.0.0
+
